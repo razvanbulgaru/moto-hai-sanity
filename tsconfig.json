@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/stripe.js", "pages/success.jsx", "pages/product/[slug].jsx", "lib/utils.js", "lib/getStripe.js", "context/StateContext.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/stripe.js", "pages/success.jsx", "pages/product/[slug].jsx", "lib/utils.js", "lib/getStripe.js", "context/StateContext.jsx", "sanitymotohai/sanity.cli.js", "sanitymotohai/sanity.config.js"],
   "exclude": ["node_modules"]
 }
