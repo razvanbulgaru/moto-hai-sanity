@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import React from 'react';
 import { urlFor } from '../lib/client';
@@ -11,7 +12,7 @@ const HeroBanner = ({ heroBanner }: any) => {
 			<h3>{heroBanner.midText}</h3>
 			<h1>{heroBanner.largeText1}</h1>
 			<img
-				src={urlFor(heroBanner.image)}
+				src={urlFor(heroBanner.image).url()}
 				alt="casca"
 				className="hero-banner-image"
 			/>

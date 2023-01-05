@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/link-passhref */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import Link from 'next/link';
 
@@ -34,7 +37,10 @@ const FooterBanner = ({
 						<button type="button">{buttonText}</button>
 					</Link>
 				</div>
-				<img src={urlFor(image)} className="footer-banner-image" />
+				<img
+					src={urlFor(image).url()}
+					className="footer-banner-image"
+				/>
 			</div>
 		</div>
 	);

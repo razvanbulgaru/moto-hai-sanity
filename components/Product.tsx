@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/link-passhref */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import Link from 'next/link';
 
@@ -9,7 +12,7 @@ const Product = ({ product: { image, name, slug, price } }: any) => {
 			<Link href={`/product/${slug.current}`}>
 				<div className="product-card">
 					<img
-						src={urlFor(image && image[0])}
+						src={urlFor(image && image[0]).url()}
 						width={250}
 						height={250}
 						className="product-image"

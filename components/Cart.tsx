@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/link-passhref */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import {
@@ -21,7 +24,7 @@ const Cart = () => {
 		setShowCart,
 		toggleCartItemQuantity,
 		onRemove,
-	} = useStateContext();
+	}: any = useStateContext();
 
 	const handleCheckout = async () => {
 		const stripe = await getStripe();
@@ -34,7 +37,7 @@ const Cart = () => {
 			body: JSON.stringify(cartItems),
 		});
 
-		if (response.statusCode === 500) return;
+		if (response.status === 500) return;
 
 		const data = await response.json();
 
@@ -44,7 +47,7 @@ const Cart = () => {
 	};
 
 	return (
-		<div className="cart-wrapper" ref={cartRef}>
+		<div className="cart-wrapper">
 			<div className="cart-container">
 				<button
 					type="button"
@@ -75,10 +78,10 @@ const Cart = () => {
 
 				<div className="product-container">
 					{cartItems.length >= 1 &&
-						cartItems.map((item) => (
+						cartItems.map((item: any) => (
 							<div className="product" key={item._id}>
 								<img
-									src={urlFor(item?.image[0])}
+									src={urlFor(item?.image[0]).url()}
 									className="cart-product-image"
 								/>
 								<div className="item-desc">

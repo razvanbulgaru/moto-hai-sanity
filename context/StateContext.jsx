@@ -1,10 +1,9 @@
 import React, { createContext, useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import product from '../sanitymotohai/schemas/product';
 
-const Context = createContext();
+const Context = createContext([]);
 
-export const StateContext = ({ children }: any) => {
+export const StateContext = ({ children }) => {
 	const [showCart, setShowCart] = useState(false);
 	const [cartItems, setCartItems] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
@@ -15,8 +14,8 @@ export const StateContext = ({ children }: any) => {
 	let index;
 
 	const onAdd = (product, quantity) => {
-		foundProduct = cartItems.find((item) => item._id === product._id);
-		index = cartItems.findIndex((item) => item._id === product._id);
+		foundProduct = cartItems.find((item) => item?._id === product._id);
+		index = cartItems.findIndex((item) => item?._id === product._id);
 
 		setTotalPrice(
 			(prevTotalPrice) => prevTotalPrice + product.price * quantity
