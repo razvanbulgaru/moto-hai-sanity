@@ -525,7 +525,7 @@ padding: 30px 65px;
 }
 .quantity-desc{
   border: 1px solid gray;
-padding: 6px;
+  padding: 6px;
 }
 .quantity-desc span{
   font-size: 16px;
@@ -622,17 +622,17 @@ margin-top: 160px;
     gap: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    align-content: center;
 }
 .product-size{
   border-radius: 5px;
-    background-color: #ebebeb;
-    text-align: center;
-    font-weight: bold;
-    font-size: large;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    
+  background-color: #ebebeb;
+  font-weight: bold;
+  font-size: larger;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  text-align: center; 
 }
 .product-size:hover{
   background-color: #f02d34;
