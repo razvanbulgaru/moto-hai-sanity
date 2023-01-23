@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 
 const Context = createContext([]);
@@ -12,6 +12,20 @@ export const StateContext = ({ children }) => {
 
 	let foundProduct;
 	let index;
+
+	const useClickOutside = (ref, callback) => {
+		const handleOutsideClick = (e) => {
+			if (!ref.current.contains(e.target)) {
+				callback();
+			}
+		};
+		useEffect(() => {
+			document.addEventListener('mousedown', handleOutsideClick);
+			return () => {
+				document.removeEventListener('mousedown', handleOutsideClick);
+			};
+		});
+	};
 
 	const onAdd = (product, quantity) => {
 		foundProduct = cartItems.find((item) => item?._id === product._id);
@@ -110,6 +124,7 @@ export const StateContext = ({ children }) => {
 				onRemove,
 				setQty,
 				setTotalQuantities,
+				useClickOutside,
 			}}
 		>
 			{children}

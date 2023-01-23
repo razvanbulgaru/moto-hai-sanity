@@ -24,6 +24,7 @@ const Cart = () => {
 		setShowCart,
 		toggleCartItemQuantity,
 		onRemove,
+		useClickOutside,
 	}: any = useStateContext();
 
 	const handleCheckout = async () => {
@@ -45,10 +46,13 @@ const Cart = () => {
 
 		stripe.redirectToCheckout({ sessionId: data.id });
 	};
+	useClickOutside(cartRef, () => {
+		setShowCart(false);
+	});
 
 	return (
 		<div className="cart-wrapper">
-			<div className="cart-container">
+			<div className="cart-container" ref={cartRef}>
 				<button
 					type="button"
 					className="cart-heading"
