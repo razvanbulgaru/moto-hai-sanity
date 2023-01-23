@@ -30,8 +30,8 @@ const Success = () => {
 				</p>
 				<p className="description">
 					Daca aveti intrebari va rog sa ne contactati la
-					<a className="email" href="mailto:order@example.com">
-						order@example.com
+					<a className="email" href="mailto:office@motohai.com">
+						office@motohai.com
 					</a>
 				</p>
 				<Link href="/">
