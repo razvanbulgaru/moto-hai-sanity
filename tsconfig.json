@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/stripe.js", "pages/success.jsx", "pages/product/[slug].jsx", "lib/utils.js", "lib/getStripe.js", "context/StateContext.jsx", "sanitymotohai/sanity.cli.js", "sanitymotohai/sanity.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/stripe.js", "pages/success.jsx", "pages/product/[slug].jsx", "lib/utils.js", "lib/getStripe.js", "context/StateContext.jsx", "sanitymotohai/sanity.cli.js", "sanitymotohai/sanity.config.js", "components/Navbar.jsx", "components/Layout.jsx", "components/index.jsx", "components/HeroBanner.jsx", "components/FooterBanner.jsx", "components/Footer.jsx", "components/Cart.jsx", "pages/index.jsx", "pages/_document.jsx", "pages/_app.jsx", "components/Product.jsx"],
   "exclude": ["node_modules"]
 }

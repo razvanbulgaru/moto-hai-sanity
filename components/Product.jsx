@@ -1,12 +1,12 @@
-/* eslint-disable @next/next/link-passhref */
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/link-passhref */
 import React from 'react';
 import Link from 'next/link';
 
 import { urlFor } from '../lib/client';
 
-const Product = ({ product: { image, name, slug, price } }: any) => {
+const Product = ({ product: { image, name, slug, price } }) => {
 	return (
 		<div>
 			<Link href={`/product/${slug.current}`}>

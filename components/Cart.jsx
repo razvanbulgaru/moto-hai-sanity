@@ -25,7 +25,7 @@ const Cart = () => {
 		toggleCartItemQuantity,
 		onRemove,
 		useClickOutside,
-	}: any = useStateContext();
+	} = useStateContext();
 
 	const handleCheckout = async () => {
 		const stripe = await getStripe();
@@ -82,7 +82,7 @@ const Cart = () => {
 
 				<div className="product-container">
 					{cartItems.length >= 1 &&
-						cartItems.map((item: any) => (
+						cartItems.map((item) => (
 							<div className="product" key={item._id}>
 								<img
 									src={urlFor(item?.image[0]).url()}
