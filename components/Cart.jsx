@@ -82,8 +82,8 @@ const Cart = () => {
 
 				<div className="product-container">
 					{cartItems.length >= 1 &&
-						cartItems.map((item) => (
-							<div className="product" key={item._id}>
+						cartItems.map((item, index) => (
+							<div className="product" key={index}>
 								<img
 									src={urlFor(item?.image[0]).url()}
 									className="cart-product-image"
@@ -95,6 +95,7 @@ const Cart = () => {
 									</div>
 									<div className="flex bottom">
 										<div>
+											<p>Marime: {item?.size}</p>
 											<p className="quantity-desc">
 												<span
 													className="minus"
@@ -102,6 +103,7 @@ const Cart = () => {
 														if (item.quantity > 1)
 															toggleCartItemQuantity(
 																item._id,
+																item.size,
 																false
 															);
 														else onRemove(item);
@@ -117,6 +119,7 @@ const Cart = () => {
 													onClick={() =>
 														toggleCartItemQuantity(
 															item._id,
+															item.size,
 															true
 														)
 													}

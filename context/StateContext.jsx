@@ -27,9 +27,13 @@ export const StateContext = ({ children }) => {
 		});
 	};
 
-	const onAdd = (product, quantity) => {
-		foundProduct = cartItems.find((item) => item?._id === product._id);
-		index = cartItems.findIndex((item) => item?._id === product._id);
+	const onAdd = (product, quantity, size) => {
+		foundProduct = cartItems.find(
+			(item) => item?._id === product._id && item?.size === size
+		);
+		index = cartItems.findIndex(
+			(item) => item?._id === product._id && item?.size === size
+		);
 
 		setTotalPrice(
 			(prevTotalPrice) => prevTotalPrice + product.price * quantity
@@ -40,7 +44,7 @@ export const StateContext = ({ children }) => {
 
 		if (foundProduct) {
 			const newCartItems = cartItems.filter(
-				(item) => item._id !== product._id
+				(item) => item._id !== product._id || item.size !== size
 			);
 			let updatedProduct = {
 				...foundProduct,
@@ -50,6 +54,7 @@ export const StateContext = ({ children }) => {
 			setCartItems(newCartItems);
 		} else {
 			product.quantity = quantity;
+			product.size = size;
 
 			setCartItems([...cartItems, { ...product }]);
 		}
@@ -58,9 +63,11 @@ export const StateContext = ({ children }) => {
 	};
 
 	const onRemove = (product) => {
-		foundProduct = cartItems.find((item) => item._id === product._id);
+		foundProduct = cartItems.find(
+			(item) => item._id === product._id && item.size === product.size
+		);
 		const newCartItems = cartItems.filter(
-			(item) => item._id !== product._id
+			(item) => item._id !== product._id || item.size !== product.size
 		);
 		setTotalPrice(
 			(prevTotalPrice) =>
@@ -72,10 +79,17 @@ export const StateContext = ({ children }) => {
 		setCartItems(newCartItems);
 	};
 
-	const toggleCartItemQuantity = (id, increment) => {
-		foundProduct = cartItems.find((item) => item._id === id);
-		index = cartItems.findIndex((product) => product._id === id);
-		const newCartItems = cartItems.filter((item) => item._id !== id);
+	const toggleCartItemQuantity = (id, size, increment) => {
+		foundProduct = cartItems.find(
+			(item) => item._id === id && item.size === size
+		);
+		index = cartItems.findIndex(
+			(product) => product._id === id && product.size === size
+		);
+		const newCartItems = cartItems.filter(
+			(item) => item._id !== id || item.size !== size
+		);
+		console.log(foundProduct);
 
 		let updatedProduct = {
 			...foundProduct,

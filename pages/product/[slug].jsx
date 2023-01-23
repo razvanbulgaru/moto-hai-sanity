@@ -12,8 +12,18 @@ import {
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-	const { image, name, details, price } = product;
+	const {
+		image,
+		name,
+		details,
+		price,
+		product_code,
+		sizes,
+		made_of,
+		stocks,
+	} = product;
 	const [index, setIndex] = useState(0);
+	const [sizeIndex, setSizeIndex] = useState(0);
 	const { decQty, incQty, qty, onAdd, setQty, setShowCart } =
 		useStateContext();
 
@@ -22,7 +32,7 @@ const ProductDetails = ({ product, products }) => {
 	}, [product, setQty]);
 
 	const handleBuyNow = () => {
-		onAdd(product, qty);
+		onAdd(product, qty, sizes[sizeIndex]);
 
 		setShowCart(true);
 	};
@@ -54,18 +64,35 @@ const ProductDetails = ({ product, products }) => {
 				</div>
 				<div className="product-detail-desc">
 					<h1>{name}</h1>
-					<div className="reviews">
-						<div>
-							<AiFillStar />
-							<AiFillStar />
-							<AiFillStar />
-							<AiFillStar />
-							<AiOutlineStar />
-						</div>
-						<p>(20)</p>
-					</div>
+					<h4>Cod produs: {product_code}</h4>
 					<h4>Detalii produs:</h4>
 					<p>{details}</p>
+					<h4>Material: {made_of}</h4>
+					<h4>Marimi:</h4>
+					<div className="product-sizes-container">
+						{sizes.map((size, i) => (
+							<div
+								key={i}
+								className={
+									i === sizeIndex
+										? 'product-size selected-size'
+										: 'product-size'
+								}
+								onClick={() => {
+									setSizeIndex(i);
+									setQty(1);
+								}}
+							>
+								{size}
+							</div>
+						))}
+					</div>
+					<h5>
+						In stoc:{' '}
+						{stocks[sizeIndex] === 0
+							? 'la furnizor'
+							: stocks[sizeIndex] + ' bucati'}
+					</h5>
 					<p className="price">{price} RON</p>
 					<div className="quantity">
 						<h3>Cantitate:</h3>
@@ -83,7 +110,9 @@ const ProductDetails = ({ product, products }) => {
 						<button
 							type="button"
 							className="add-to-cart"
-							onClick={() => onAdd(product, qty)}
+							onClick={() =>
+								onAdd(product, qty, sizes[sizeIndex])
+							}
 						>
 							Adauga in cos
 						</button>
