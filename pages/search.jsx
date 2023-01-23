@@ -15,3 +15,10 @@ const prices = [
 		value: '1001-3000',
 	},
 ];
+import React from 'react';
+
+function Search() {
+	return <div>Search</div>;
+}
+
+export default Search;
