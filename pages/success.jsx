@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { BsBagCheckFill } from 'react-icons/bs';
@@ -15,7 +16,7 @@ const Success = () => {
 		setTotalPrice(0);
 		setTotalQuantities(0);
 		runFireworks();
-	}, []);
+	}, [setCartItems, setTotalPrice, setTotalQuantities]);
 
 	return (
 		<div className="success-wrapper">
