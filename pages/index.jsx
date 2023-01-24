@@ -1,24 +1,36 @@
 import React from 'react';
 
 import { client } from '../lib/client';
-import { Product, FooterBanner, HeroBanner } from '../components';
+import { Product, HeroBanner, Tabs } from '../components';
 
 const Home = ({ products, bannerData }) => (
 	<>
 		<HeroBanner heroBanner={bannerData.length && bannerData[0]} />
 
 		<div className="products-heading">
-			<h2>Cele mai vandute produse</h2>
+			<h2>Categorii de produse</h2>
 			<p>Gama variata de echipamente moto</p>
 		</div>
-
-		<div className="products-container">
-			{products?.map((product) => (
-				<Product key={product._id} product={product} />
-			))}
-		</div>
-
-		<FooterBanner footerBanner={bannerData && bannerData[0]} />
+		<Tabs>
+			<div lable="Barbati">
+				{products?.map((product) => {
+					if (product.designed_for === 'barbati')
+						return <Product key={product._id} product={product} />;
+				})}
+			</div>
+			<div lable="Femei">
+				{products?.map((product) => {
+					if (product.designed_for === 'femei')
+						return <Product key={product._id} product={product} />;
+				})}
+			</div>
+			<div lable="Accesorii">
+				{products?.map((product) => {
+					if (product.designed_for === 'accesorii')
+						return <Product key={product._id} product={product} />;
+				})}
+			</div>
+		</Tabs>
 	</>
 );
 
@@ -33,4 +45,5 @@ export const getServerSideProps = async () => {
 		props: { products, bannerData },
 	};
 };
+
 export default Home;

@@ -24,6 +24,8 @@ const ProductDetails = ({ product, products }) => {
 
 	useEffect(() => {
 		setQty(1);
+		setSizeIndex(0);
+		setIndex(0);
 	}, [product, setQty]);
 
 	const handleBuyNow = () => {

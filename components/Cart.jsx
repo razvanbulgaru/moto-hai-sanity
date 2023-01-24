@@ -92,9 +92,9 @@ const Cart = () => {
 									<div className="flex top">
 										<h5>{item?.name}</h5>
 										<h4>{item?.price} RON</h4>
+										<h4>Marime: {item?.size}</h4>
 									</div>
 									<div className="flex bottom">
-										<p>Marime: {item?.size}</p>
 										<div>
 											<p className="quantity-desc">
 												<span

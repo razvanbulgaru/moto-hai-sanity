@@ -352,14 +352,17 @@ padding: 20px 10px;
  background-color: #ebebeb;
 }
 .item-desc .flex{
-  display: flex;
+  display: flex; 
+  gap: 5px;
+  flex-direction: column;
   justify-content: space-between;
   width: 350px;
   color: #324d67;
 
 }
 .item-desc .bottom{
-  margin-top: 30px;
+  margin-top: 20px;
+  flex-direction: row;
 }
 .flex h5{
   font-size: 24px;
@@ -504,7 +507,7 @@ padding: 30px 65px;
   color: #f02d34;
   cursor: pointer;
   width: 200px;
-   transform: scale(1, 1);
+  transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
 .buttons .add-to-cart:hover{
@@ -633,7 +636,7 @@ margin-top: 160px;
   background-color: #ebebeb;
   font-weight: bold;
   font-size: larger;
-  width: 30px;
+  min-width: 30px;
   height: 30px;
   cursor: pointer;
   text-align: center; 
@@ -645,6 +648,48 @@ margin-top: 160px;
 .selected-size {
   background-color: #f02d34;
   color: #eee;
+}
+.tabs-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: #f02d34;
+  cursor: pointer;
+}
+.tabs-header > li {
+  margin: 0 1em;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.current-tab {
+  border-bottom: 2px solid #f02d34;
+  font-weight: bold;
+  padding-bottom: 5px;
+  font-size: large;
+  color: #324d67;
+}
+
+.tab {
+  border-bottom: 1px solid lightgray;
+  color: gray;
+  font-size: large;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.tab:hover{
+  border-bottom: 1px solid #f02d34;
+  font-weight: bold;
+}
+
+.tab-content {
+  padding-top: 10px;
 }
 
 @media screen and (max-width:800px) {
@@ -739,14 +784,12 @@ margin-top: 160px;
     margin: 20px;
   }
 
-.item-desc .flex{
+.item-desc .flex {
   width: 200px;
 }
-.top{
+.top {
   flex-wrap: wrap;
   gap: 10px;
-
-
 }
 .item-desc .bottom{
   margin-top: 30px;

@@ -27,7 +27,7 @@ export default {
       },
     },
     {
-      name: 'desingned_for',
+      name: 'designed_for',
       title: 'Designed for',
       type: 'string',
     },
