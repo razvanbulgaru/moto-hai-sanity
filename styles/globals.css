@@ -367,6 +367,10 @@ padding: 20px 10px;
 .flex h4{
   font-size: 20px;
 }
+.flex p{
+  padding-top: 10px;
+  font-size: 18px;
+}
 .total{
   display: flex;
   justify-content: space-between;
@@ -525,24 +529,24 @@ padding: 30px 65px;
 }
 .quantity-desc{
   border: 1px solid gray;
+  border-radius: 20px;
   padding: 6px;
 }
 .quantity-desc span{
-  font-size: 16px;
+  font-size: 18px;
   padding: 6px 12px;
-  cursor: pointer;
 }
 .quantity-desc .minus{
-  border-right: 1px solid gray;
   color: #f02d34;
+  cursor: pointer;
 }
 .quantity-desc .num{
-  border-right: 1px solid gray;
   font-size: 20px;
+  border-radius: 10px;
 }
 .quantity-desc .plus{
   color: rgb(49, 168, 49);
-
+  cursor: pointer;
 }
 
 .maylike-products-wrapper{

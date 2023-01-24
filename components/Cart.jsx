@@ -4,8 +4,8 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import {
-	AiOutlineMinus,
-	AiOutlinePlus,
+	AiFillMinusCircle,
+	AiFillPlusCircle,
 	AiOutlineLeft,
 	AiOutlineShopping,
 } from 'react-icons/ai';
@@ -94,8 +94,8 @@ const Cart = () => {
 										<h4>{item?.price} RON</h4>
 									</div>
 									<div className="flex bottom">
+										<p>Marime: {item?.size}</p>
 										<div>
-											<p>Marime: {item?.size}</p>
 											<p className="quantity-desc">
 												<span
 													className="minus"
@@ -109,7 +109,7 @@ const Cart = () => {
 														else onRemove(item);
 													}}
 												>
-													<AiOutlineMinus />
+													<AiFillMinusCircle />
 												</span>
 												<span className="num">
 													{item?.quantity}
@@ -124,7 +124,7 @@ const Cart = () => {
 														)
 													}
 												>
-													<AiOutlinePlus />
+													<AiFillPlusCircle />
 												</span>
 											</p>
 										</div>

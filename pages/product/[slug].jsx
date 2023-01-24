@@ -3,12 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Product } from '../../components';
 import { client, urlFor } from '../../lib/client';
-import {
-	AiOutlineMinus,
-	AiOutlinePlus,
-	AiFillStar,
-	AiOutlineStar,
-} from 'react-icons/ai';
+import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
@@ -98,11 +93,11 @@ const ProductDetails = ({ product, products }) => {
 						<h3>Cantitate:</h3>
 						<p className="quantity-desc">
 							<span className="minus" onClick={() => decQty()}>
-								<AiOutlineMinus />
+								<AiFillMinusCircle />
 							</span>
 							<span className="num">{qty}</span>
 							<span className="plus" onClick={() => incQty()}>
-								<AiOutlinePlus />
+								<AiFillPlusCircle />
 							</span>
 						</p>
 					</div>
