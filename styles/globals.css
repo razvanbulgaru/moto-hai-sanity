@@ -127,7 +127,6 @@ width: 100%;
   margin-top: 6px;
   color: black;
 }
-
 .hero-banner-container{
   background-color: #dcdcdc;
   border-radius: 15px;
@@ -139,14 +138,14 @@ width: 100%;
   justify-content: center;
 }
 .details-container{
-  padding: 100px 40px;
+  padding: 80px 40px;
   display: flex;
   flex-direction: column;
 }
-.hero-banner-container .beats-solo{
+.details-container .beats-solo{
   font-size: 20px;
 }
-.hero-banner-container button{
+.details-container button{
   border-radius: 15px;
   padding: 10px 16px;
   background-color: #f02d34;
@@ -158,11 +157,11 @@ width: 100%;
   cursor: pointer;
 }
 
-.hero-banner-container h3{
+.details-container h3{
   font-size: 40px;
   margin-top: 4px;
 }
-.hero-banner-container h1{
+.details-container h1{
   color: white;
   font-size: 50px;
   text-transform: uppercase;
@@ -698,6 +697,7 @@ margin-top: 160px;
   .details-container{
     padding-top: 30px;
     padding-bottom: 0;
+    align-items: center;
   }
   .products-heading h2 {
     font-size: 30px;
@@ -744,15 +744,22 @@ margin-top: 160px;
   }
   .hero-banner-container h1{
     font-size: 30px;
+    align-self: flex-start;
   }
  .hero-banner-container h3{
     font-size: 20px;
+    align-self: flex-start;
   }
-  .hero-banner-container button{
-    margin-top: 50px;
+  .beats-solo {
+    font-size: 16px !important;
+    align-self: flex-start;
+  }
+  .details-container button{
+    margin-top: 40px;
   }
   .desc{
    bottom: 60px;
+   align-self: flex-start;
   }
   .product-detail-container{
     flex-wrap: wrap;
