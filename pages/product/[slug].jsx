@@ -84,12 +84,6 @@ const ProductDetails = ({ product, products }) => {
 							</div>
 						))}
 					</div>
-					<h5>
-						In stoc:{' '}
-						{stocks[sizeIndex] === 0
-							? 'la furnizor'
-							: stocks[sizeIndex] + ' bucati'}
-					</h5>
 					<p className="price">{price} RON</p>
 					<div className="quantity">
 						<h3>Cantitate:</h3>

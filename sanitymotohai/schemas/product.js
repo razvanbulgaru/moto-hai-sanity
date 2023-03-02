@@ -48,12 +48,6 @@ export default {
       of: [{type: 'string'}],
     },
     {
-      name: 'stocks',
-      title: 'Stocks',
-      type: 'array',
-      of: [{type: 'number'}],
-    },
-    {
       name: 'price',
       title: 'Price',
       type: 'number',
