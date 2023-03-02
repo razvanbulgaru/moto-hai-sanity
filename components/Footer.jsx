@@ -12,6 +12,9 @@ const Footer = () => {
 				Copyright © 2023 Motohai, CUI: 32143124312, Reg. Com.
 				J432/2342/20324202
 			</p>
+			<Link href="/legals">
+				<h5>Termeni si conditii</h5>
+			</Link>
 			<p>Contact</p>
 			<p className="icons">
 				<Link href="mailto:office@motohai.com">

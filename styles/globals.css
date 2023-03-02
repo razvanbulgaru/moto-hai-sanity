@@ -645,6 +645,43 @@ margin-top: 160px;
   background-color: #f02d34;
   color: #eee;
 }
+.legals-container {
+ display: flex;
+ gap: 20px;
+ height: 1000px;
+}
+.legals-header {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding-top: 30px;
+  background-color: lightgray;
+  text-align: center;
+  list-style: none;
+}
+.a-legal-tab {
+  border: 2px solid #f02d34;
+  font-weight: bold;
+  padding-bottom: 5px;
+  font-size: large;
+  color: #324d67;
+}
+.legal-tab {
+  border: 1px solid lightgray;
+  color: gray;
+  font-size: large;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+.legal-tab:hover {
+  border: 1px solid #f02d34;
+  transform: scale(1.1, 1.1);
+  font-weight: bold;
+}
+.legal-content{
+  overflow: scroll;
+}
 .tabs-header {
   display: flex;
   justify-content: space-evenly;
@@ -697,6 +734,16 @@ margin-top: 160px;
 }
 
 @media screen and (max-width:800px) {
+  .legals-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: inherit;
+  }
+  .legals-container {
+    flex-direction: column;
+  }
   .hero-banner-container{
     height: 560px;
     flex-direction: column-reverse;
