@@ -27,8 +27,8 @@ export default {
       },
     },
     {
-      name: 'designed_for',
-      title: 'Designed for',
+      name: 'subcategory',
+      title: 'Subcategory',
       type: 'string',
     },
     {

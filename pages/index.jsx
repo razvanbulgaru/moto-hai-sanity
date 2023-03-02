@@ -12,21 +12,27 @@ const Home = ({ products, bannerData }) => (
 			<p>Gama variata de echipamente moto</p>
 		</div>
 		<Tabs>
+			<div lable="Casti">
+				{products?.map((product) => {
+					if (product.category === 'casti')
+						return <Product key={product._id} product={product} />;
+				})}
+			</div>
 			<div lable="Barbati">
 				{products?.map((product) => {
-					if (product.designed_for === 'barbati')
+					if (product.category === 'barbati')
 						return <Product key={product._id} product={product} />;
 				})}
 			</div>
 			<div lable="Femei">
 				{products?.map((product) => {
-					if (product.designed_for === 'femei')
+					if (product.category === 'femei')
 						return <Product key={product._id} product={product} />;
 				})}
 			</div>
 			<div lable="Accesorii">
 				{products?.map((product) => {
-					if (product.designed_for === 'accesorii')
+					if (product.category === 'accesorii')
 						return <Product key={product._id} product={product} />;
 				})}
 			</div>
