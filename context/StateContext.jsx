@@ -13,6 +13,32 @@ export const StateContext = ({ children }) => {
 	let foundProduct;
 	let index;
 
+	useEffect(() => {
+		const l_totalPrice = JSON.parse(localStorage.getItem('totalPrice'));
+		if (l_totalPrice) {
+			setTotalPrice(l_totalPrice);
+		}
+		const l_totalQuantities = JSON.parse(
+			localStorage.getItem('totalQuantities')
+		);
+		if (l_totalQuantities) {
+			setTotalQuantities(l_totalQuantities);
+		}
+		const l_cartItems = JSON.parse(localStorage.getItem('cartItems'));
+		if (l_totalQuantities) {
+			setCartItems(l_cartItems);
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+		localStorage.setItem(
+			'totalQuantities',
+			JSON.stringify(totalQuantities)
+		);
+		localStorage.setItem('cartItems', JSON.stringify(cartItems));
+	}, [totalPrice, totalQuantities, cartItems]);
+
 	const useClickOutside = (ref, callback) => {
 		const handleOutsideClick = (e) => {
 			if (!ref.current.contains(e.target)) {
