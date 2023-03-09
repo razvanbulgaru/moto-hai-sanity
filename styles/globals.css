@@ -702,6 +702,7 @@ margin-top: 160px;
   font-weight: bold;
 }
 .legal-content{
+  white-space: pre-wrap;
   overflow: auto;
 }
 .tabs-header {
