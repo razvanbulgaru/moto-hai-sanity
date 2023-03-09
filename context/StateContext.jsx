@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+	createContext,
+	useContext,
+	useState,
+	useEffect,
+	useRef,
+} from 'react';
 import { toast } from 'react-hot-toast';
 
 const Context = createContext([]);
@@ -9,6 +15,8 @@ export const StateContext = ({ children }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalQuantities, setTotalQuantities] = useState(0);
 	const [qty, setQty] = useState(1);
+	const [cookieAccepted, setCookieAccepted] = useState(false);
+	const showCookiePop = useRef(true);
 
 	let foundProduct;
 	let index;
@@ -25,8 +33,15 @@ export const StateContext = ({ children }) => {
 			setTotalQuantities(l_totalQuantities);
 		}
 		const l_cartItems = JSON.parse(localStorage.getItem('cartItems'));
-		if (l_totalQuantities) {
+		if (l_totalPrice) {
 			setCartItems(l_cartItems);
+		}
+		const l_cookieAccepted = JSON.parse(
+			localStorage.getItem('cookieAccepted')
+		);
+		if (l_cookieAccepted) {
+			setCookieAccepted(l_cookieAccepted);
+			showCookiePop.current = false;
 		}
 	}, []);
 
@@ -37,7 +52,33 @@ export const StateContext = ({ children }) => {
 			JSON.stringify(totalQuantities)
 		);
 		localStorage.setItem('cartItems', JSON.stringify(cartItems));
-	}, [totalPrice, totalQuantities, cartItems]);
+		localStorage.setItem('cookieAccepted', JSON.stringify(cookieAccepted));
+		if (showCookiePop.current) {
+			showCookiePop.current = false;
+			toast(
+				(t) => (
+					<div className="pop-up">
+						<span>
+							Acest website foloseste cookies, continuarea
+							navigarii implica acceptarea lor.
+						</span>
+						<button
+							className="cookie"
+							onClick={() => {
+								toast.dismiss(t.id);
+								setCookieAccepted(true);
+							}}
+						>
+							Accept
+						</button>
+					</div>
+				),
+				{
+					duration: Infinity,
+				}
+			);
+		}
+	}, [totalPrice, totalQuantities, cartItems, cookieAccepted]);
 
 	const useClickOutside = (ref, callback) => {
 		const handleOutsideClick = (e) => {

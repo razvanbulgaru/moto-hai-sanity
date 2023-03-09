@@ -156,6 +156,22 @@ width: 100%;
   font-weight: 500;
   cursor: pointer;
 }
+.pop-up {
+  display: flex;
+  flex-direction: column;
+}
+
+.cookie {
+  border-radius: 15px;
+  padding: 10px 16px;
+  margin-top: 10px;
+  align-self: center;
+  background-color: #f02d34;
+  width: 50%;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
 .details-container h3{
   font-size: 40px;
@@ -653,18 +669,18 @@ margin-top: 160px;
 .legals-header {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   width: 300px;
   padding-top: 30px;
-  background-color: lightgray;
-  border-top-right-radius: 2%;
-  border-top-left-radius: 2%;
   text-align: center;
   list-style: none;
+  border-right: 1px solid lightgray;
 }
 .a-legal-tab {
   margin-left: 5px;
   margin-right: 5px;
   border: 2px solid #f02d34;
+  border-radius: 15px;
   font-weight: bold;
   padding-bottom: 5px;
   font-size: large;
@@ -681,6 +697,7 @@ margin-top: 160px;
 }
 .legal-tab:hover {
   border: 1px solid #f02d34;
+  border-radius: 15px;
   transform: scale(1.05, 1.1);
   font-weight: bold;
 }
@@ -728,6 +745,12 @@ margin-top: 160px;
   padding-top: 10px;
   animation: fadein 0.3s ease-in;
 }
+.grey-out{
+  opacity: 50%;
+   pointer-events: none;
+   user-select: none;
+   overflow: hidden;
+}
 @keyframes fadein {
   from {
     opacity: 0;
@@ -741,6 +764,8 @@ margin-top: 160px;
 @media screen and (max-width:800px) {
   .legals-header {
     flex-direction: row;
+    border-right: none;
+    gap: 0;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: stretch;
@@ -752,11 +777,13 @@ margin-top: 160px;
   }
   .a-legal-tab {
     border: none;
+    border-radius: 0;
     border-bottom: 2px solid #f02d34;
     color: #324d67;
   }
   .legal-tab:hover {
     border: none;
+    border-radius: 0;
     transform: scale(1.1, 1.1);
     border-bottom: 1px solid #f02d34;
   }
