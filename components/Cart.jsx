@@ -3,17 +3,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import {
-	AiFillMinusCircle,
-	AiFillPlusCircle,
-	AiOutlineLeft,
-	AiOutlineShopping,
-} from 'react-icons/ai';
-import { TiDeleteOutline } from 'react-icons/ti';
-import { toast } from 'react-hot-toast';
+import { AiOutlineLeft } from 'react-icons/ai';
 import { useStateContext } from '../context/StateContext';
-import { urlFor } from '../lib/client';
-import getStripe from '../lib/getStripe';
+import CartItems from './CartItems';
 
 const Cart = () => {
 	const cartRef = useRef();
@@ -22,30 +14,9 @@ const Cart = () => {
 		totalQuantities,
 		cartItems,
 		setShowCart,
-		toggleCartItemQuantity,
-		onRemove,
 		useClickOutside,
 	} = useStateContext();
 
-	const handleCheckout = async () => {
-		const stripe = await getStripe();
-
-		const response = await fetch('/api/stripe', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(cartItems),
-		});
-
-		if (response.status === 500) return;
-
-		const data = await response.json();
-
-		toast.loading('Redirecting...');
-
-		stripe.redirectToCheckout({ sessionId: data.id });
-	};
 	useClickOutside(cartRef, () => {
 		setShowCart(false);
 	});
@@ -64,87 +35,8 @@ const Cart = () => {
 						({totalQuantities} produse)
 					</span>
 				</button>
-				{cartItems.length < 1 && (
-					<div className="empty-cart">
-						<AiOutlineShopping size={150} />
-						<h3> Cosul tau de cumparaturi e gol</h3>
-						<Link href="/">
-							<button
-								type="button"
-								onClick={() => setShowCart(false)}
-								className="btn"
-							>
-								Continua cumparaturile
-							</button>
-						</Link>
-					</div>
-				)}
 
-				<div className="product-container">
-					{cartItems.length >= 1 &&
-						cartItems.map((item, index) => (
-							<div className="product" key={index}>
-								<img
-									src={urlFor(item?.image[0]).url()}
-									className="cart-product-image"
-								/>
-								<div className="item-desc">
-									<div className="flex top">
-										<h5>{item?.name}</h5>
-										<h4>{item?.price} RON</h4>
-										<p>Marime: {item?.size}</p>
-									</div>
-									<div className="flex bottom">
-										<div>
-											<p className="quantity-desc">
-												<span
-													className="minus"
-													onClick={() => {
-														if (item.quantity > 1)
-															toggleCartItemQuantity(
-																item._id,
-																item.size,
-																false
-															);
-														else onRemove(item);
-													}}
-												>
-													<AiFillMinusCircle />
-												</span>
-												<span className="num">
-													{item?.quantity}
-												</span>
-												<span
-													className="plus"
-													onClick={() =>
-														toggleCartItemQuantity(
-															item._id,
-															item.size,
-															true
-														)
-													}
-												>
-													<AiFillPlusCircle />
-												</span>
-											</p>
-										</div>
-										<button
-											type="button"
-											className="remove-item"
-											onClick={() => {
-												onRemove(item);
-												toast.success(
-													`${item.quantity} ${item.name} a fost sters din cos.`
-												);
-											}}
-										>
-											<TiDeleteOutline />
-										</button>
-									</div>
-								</div>
-							</div>
-						))}
-				</div>
+				<CartItems />
 				{cartItems.length >= 1 && (
 					<div className="cart-bottom">
 						<div className="total">
@@ -152,13 +44,15 @@ const Cart = () => {
 							<h3>{totalPrice} RON</h3>
 						</div>
 						<div className="btn-container">
-							<button
-								type="button"
-								className="btn"
-								onClick={handleCheckout}
-							>
-								Catre plata
-							</button>
+							<Link href={`/payment`}>
+								<button
+									type="button"
+									className="btn"
+									onClick={() => setShowCart(false)}
+								>
+									Catre plata
+								</button>
+							</Link>
 						</div>
 					</div>
 				)}
