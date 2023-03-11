@@ -42,20 +42,64 @@ const Payment = () => {
 						type="text"
 						id="adress"
 						name="adress"
-						placeholder="Adresa"
+						placeholder="Strada si numar"
 					/>
 					<input
 						type="text"
-						id="oras"
-						name="oras"
+						id="adress"
+						name="adress"
+						placeholder="Bloc, etaj, apartament"
+					/>
+					<input
+						type="text"
+						id="city"
+						name="city"
 						placeholder="Oras"
 					/>
-					<input
-						type="text"
-						id="judet"
-						name="judet"
-						placeholder="Judet"
-					/>
+					<select id="counties" name="countylist" className="minimal">
+						<option value="alba"> Alba </option>
+						<option value="arad"> Arad </option>
+						<option value="arges"> Arges </option>
+						<option value="bacau"> Bacau </option>
+						<option value="bihor"> Bihor </option>
+						<option value="bistrita"> Bistrita-Nasaud </option>
+						<option value="botosani"> Botosani </option>
+						<option value="braila"> Braila </option>
+						<option value="brasov"> Brasov </option>
+						<option value="bucuresti"> Bucuresti </option>
+						<option value="buzau"> Buzau </option>
+						<option value="calarasi"> Calarasi </option>
+						<option value="severin"> Caras-Severin </option>
+						<option value="cluj"> Cluj </option>
+						<option value="constanta"> Constanta </option>
+						<option value="covasna"> Covasna </option>
+						<option value="dambovita"> Dambovita </option>
+						<option value="dolj"> Dolj </option>
+						<option value="galati"> Galati </option>
+						<option value="giurgiu"> Giurgiu </option>
+						<option value="gorj"> Gorj </option>
+						<option value="harghita"> Harghita </option>
+						<option value="hunedoara"> Hunedoara </option>
+						<option value="ialomita"> Ialomita </option>
+						<option value="iasi"> Iasi </option>
+						<option value="ilfov"> Ilfov </option>
+						<option value="maramures"> Maramures </option>
+						<option value="mehedinti"> Mehedinti </option>
+						<option value="mures"> Mures </option>
+						<option value="neamt"> Neamt </option>
+						<option value="olt"> Olt </option>
+						<option value="prahova"> Prahova </option>
+						<option value="salaj"> Salaj </option>
+						<option value="satumare"> Satu Mare </option>
+						<option value="sibiu"> Sibiu </option>
+						<option value="suceava"> Suceava </option>
+						<option value="teleorman"> Teleorman </option>
+						<option value="timis"> Timis </option>
+						<option value="tulcea"> Tulcea </option>
+						<option value="valcea"> Valcea </option>
+						<option value="vaslui"> Vaslui </option>
+						<option value="vrancea"> Vrancea </option>
+					</select>
 					<button type="submit" className="submit-form">
 						Submit
 					</button>
